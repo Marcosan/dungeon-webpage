@@ -1,0 +1,23 @@
+.anim-change-page-up {
+	transform: translateY(50vh);
+	opacity: 0.2;
+}
+.anim-change-page-down {
+	transform: translateY(-50vh);
+	opacity: 0.2;
+}
+.anim-change-page-left {
+	transform: translateX(50vh);
+	opacity: 0.2;
+}
+.anim-change-page-right {
+	transform: translateX(-50vh);
+	opacity: 0.2;
+}
+
+.offset-up {
+	transform: translateY(50vh);
+	opacity: 0.2;
+	transition: transform 500ms, opacity 500ms 200ms;
+    will-change: transform;
+}

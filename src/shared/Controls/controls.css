@@ -1,0 +1,50 @@
+.wrapper {
+	width: 20vw;
+	/* height: 20vh; */
+	position: fixed;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	grid-auto-rows: minmax(80px, 80px);
+	z-index: 1000;
+}
+
+.up,
+.down,
+.left,
+.right {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    cursor: pointer;
+}
+
+.up {
+	background-color: aqua;
+	grid-column: 2 / 3;
+	/* grid-row: 1 / 2; */
+}
+.down {
+	background-color: aqua;
+	grid-column: 2 / 3;
+	grid-row: 2;
+}
+.left {
+	background-color: aquamarine;
+	grid-column: 1 / 2;
+	grid-row: 2;
+}
+.right {
+	background-color: aqua;
+	grid-column: 3;
+	grid-row: 2;
+}
+
+.icon-dir {
+	height: 40px;
+	color: white;
+}
