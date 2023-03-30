@@ -21,3 +21,21 @@
 	transition: transform 500ms, opacity 500ms 200ms;
     will-change: transform;
 }
+.offset-down {
+	transform: translateY(-50vh);
+	opacity: 0.2;
+	transition: transform 500ms, opacity 500ms 200ms;
+    will-change: transform;
+}
+.offset-left {
+	transform: translateX(50vh);
+	opacity: 0.2;
+	transition: transform 500ms, opacity 500ms 200ms;
+    will-change: transform;
+}
+.offset-right {
+	transform: translateX(-50vh);
+	opacity: 0.2;
+	transition: transform 500ms, opacity 500ms 200ms;
+    will-change: transform;
+}

@@ -1,36 +1,63 @@
 import { faChevronDown, faChevronLeft, faChevronRight, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useLocation } from 'react-router-dom'
 import * as React from "react";
 import './controls.css'
-import { useEffect } from "react";
+import { getPageNameByKey } from "../../services/HandlerControls";
 
 export default function Controls(props) {
-    const { navigate, onUp, onDown, onLeft, onRight } = props;
-    const location = useLocation();
-     useEffect(() => {
-        // console.log(location.pathname);
-     }, []);
+	const { objectPage, onPressControlHandler } = props;
 
-	const onTransitionEnd = () => {
-		console.log('sdfsdfds');
-		navigate('');
+	const onPressControl = (direction) => {
+		let toPageTmp = '';
+		let animClass = '';
+		let animClassToPage = '';
+		switch (direction) {
+			case 'up':
+				animClass = 'anim-change-page-up';
+				animClassToPage = 'offset-down';
+				toPageTmp = getPageNameByKey(objectPage.up);
+				break;
+			case 'down':
+				animClass = 'anim-change-page-down';
+				animClassToPage = 'offset-up';
+				toPageTmp = getPageNameByKey(objectPage.down);
+				break;
+			case 'left':
+				animClass = 'anim-change-page-left';
+				animClassToPage = 'offset-right';
+				toPageTmp = getPageNameByKey(objectPage.left);
+				break;
+			case 'right':
+				animClass = 'anim-change-page-right';
+				animClassToPage = 'offset-left';
+				toPageTmp = getPageNameByKey(objectPage.right);
+				break;
+			default:
+				break;
+		}
+		if (toPageTmp?.length > 0) {
+			onPressControlHandler({
+				animClass,
+				animClassToPage,
+				toPageTmp,
+			});
+		} else {
+			onPressControlHandler(null);
+		}
 	}
-
-    const onClick = (type) => {}
-    
+	
 	return (
 		<div className="wrapper">
-			<div className="up" onClick={onUp}>
+			<div className="up" onClick={() => onPressControl('up')}>
 				<FontAwesomeIcon className="icon-dir" icon={faChevronUp}/>
 			</div>
-			<div className="down" onClick={onDown}>
+			<div className="down" onClick={() => onPressControl('down')}>
 				<FontAwesomeIcon className="icon-dir" icon={faChevronDown}/>
 			</div>
-			<div className="left" onClick={onLeft}>
+			<div className="left" onClick={() => onPressControl('left')}>
 				<FontAwesomeIcon className="icon-dir" icon={faChevronLeft}/>
 			</div>
-			<div className="right" onClick={onRight}>
+			<div className="right" onClick={() => onPressControl('right')}>
 				<FontAwesomeIcon className="icon-dir" icon={faChevronRight}/>
 			</div>
 		</div>
