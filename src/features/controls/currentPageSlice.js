@@ -1,28 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { HOME } from '../../data/DungeonMap';
 
 export const currentPageSlice = createSlice({
 	name: 'currentPage',
 	initialState: {
-		value: 0
+		value: HOME
 	},
 	reducers: {
-		increment: state => {
-		// Redux Toolkit allows us to write "mutating" logic in reducers. It
-		// doesn't actually mutate the state because it uses the Immer library,
-		// which detects changes to a "draft state" and produces a brand new
-		// immutable state based off those changes
-		state.value += 1
+		setCurrentPage: (state, action) => {
+		    state.value = action.payload;
 		},
-		decrement: state => {
-		state.value -= 1
-		},
-		incrementByAmount: (state, action) => {
-		state.value += action.payload
-		}
 	}
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = currentPageSlice.actions
+export const { setCurrentPage } = currentPageSlice.actions
 
 export default currentPageSlice.reducer

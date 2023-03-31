@@ -1,15 +1,23 @@
 import { useState, useRef, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Routes, Route, Link, useNavigate, useLocation } from "react-router-dom";
 import './Animations.css';
+import { setCurrentPage } from "./features/controls/currentPageSlice";
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
 import Home from "./pages/Home/HomePage";
 import { getObjectPageByPath } from "./services/HandlerControls";
 import Controls from "./shared/Controls/Controls";
+import MapDungeon from "./shared/Map/Map";
 
 export default function App() {
 	return (
-		<div>
-			{/* <Controls navigate={navigate}/> */}
+		<div style={{
+			display: 'flex',
+			height: '100vh',
+			width: '100vw',
+			overflow:'hidden',
+		}}>
+			<MapDungeon />
 			<Routes>
 				<Route path="/" element={<Home />}></Route>
 				<Route path="about" element={<AboutUsPage />} />
@@ -31,13 +39,16 @@ function PageA() {
 	
 	const pageRef = useRef(null);
 	const location = useLocation();
+    const dispatch = useDispatch();
 
 	useEffect(() => {
 		onInit();
 	}, []);
 
 	const onInit = () => {
-		setObjectPage(getObjectPageByPath(location.pathname));
+        const obj = getObjectPageByPath(location.pathname);
+        dispatch(setCurrentPage(obj));
+		setObjectPage(obj);
 		setTimeout(() => {
 			if (location?.state?.classToPage?.length > 0) {
 				pageRef.current.classList.remove(location.state.classToPage);
@@ -87,13 +98,16 @@ function PageB() {
 	
 	const pageRef = useRef(null);
 	const location = useLocation();
+    const dispatch = useDispatch();
 
 	useEffect(() => {
 		onInit();
 	}, []);
 
 	const onInit = () => {
-		setObjectPage(getObjectPageByPath(location.pathname));
+        const obj = getObjectPageByPath(location.pathname);
+        dispatch(setCurrentPage(obj));
+		setObjectPage(obj);
 		setTimeout(() => {
 			if (location?.state?.classToPage?.length > 0) {
 				pageRef.current.classList.remove(location.state.classToPage);
@@ -143,13 +157,16 @@ function PageC() {
 	
 	const pageRef = useRef(null);
 	const location = useLocation();
+    const dispatch = useDispatch();
 
 	useEffect(() => {
 		onInit();
 	}, []);
 
 	const onInit = () => {
-		setObjectPage(getObjectPageByPath(location.pathname));
+        const obj = getObjectPageByPath(location.pathname);
+        dispatch(setCurrentPage(obj));
+		setObjectPage(obj);
 		setTimeout(() => {
 			if (location?.state?.classToPage?.length > 0) {
 				pageRef.current.classList.remove(location.state.classToPage);
@@ -199,13 +216,16 @@ function PageD() {
 	
 	const pageRef = useRef(null);
 	const location = useLocation();
+    const dispatch = useDispatch();
 
 	useEffect(() => {
 		onInit();
 	}, []);
 
 	const onInit = () => {
-		setObjectPage(getObjectPageByPath(location.pathname));
+        const obj = getObjectPageByPath(location.pathname);
+        dispatch(setCurrentPage(obj));
+		setObjectPage(obj);
 		setTimeout(() => {
 			if (location?.state?.classToPage?.length > 0) {
 				pageRef.current.classList.remove(location.state.classToPage);

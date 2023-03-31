@@ -1,0 +1,26 @@
+.contenct-map {
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	z-index: 1000;
+}
+.square {
+	height: 35px;
+	width: 35px;
+	border: 1px solid #cdced3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	cursor: pointer;
+	background-color: azure;
+}
+.square:hover {
+	background-color: #bed1d1;
+}
+
+.active-square {
+	background-color: #52adc9;
+}
