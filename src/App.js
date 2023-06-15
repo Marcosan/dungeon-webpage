@@ -9,7 +9,7 @@ import { getObjectPageByPath } from "./services/HandlerControls";
 import Controls from "./shared/Controls/Controls";
 import MapDungeon from "./shared/Map/Map";
 
-export default function App() {
+export default function App(props) {
 	return (
 		<div style={{
 			display: 'flex',
@@ -19,7 +19,7 @@ export default function App() {
 		}}>
 			<MapDungeon />
 			<Routes>
-				<Route path="/" element={<Home />}></Route>
+				<Route path="/" element={<Home {...props}/>}></Route>
 				<Route path="about" element={<AboutUsPage />} />
 				<Route path="a" element={<PageA />} />
 				<Route path="b" element={<PageB />} />
@@ -39,15 +39,15 @@ function PageA() {
 	
 	const pageRef = useRef(null);
 	const location = useLocation();
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		onInit();
 	}, []);
 
 	const onInit = () => {
-        const obj = getObjectPageByPath(location.pathname);
-        dispatch(setCurrentPage(obj));
+		const obj = getObjectPageByPath(location.pathname);
+		dispatch(setCurrentPage(obj));
 		setObjectPage(obj);
 		setTimeout(() => {
 			if (location?.state?.classToPage?.length > 0) {
@@ -98,15 +98,15 @@ function PageB() {
 	
 	const pageRef = useRef(null);
 	const location = useLocation();
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		onInit();
 	}, []);
 
 	const onInit = () => {
-        const obj = getObjectPageByPath(location.pathname);
-        dispatch(setCurrentPage(obj));
+		const obj = getObjectPageByPath(location.pathname);
+		dispatch(setCurrentPage(obj));
 		setObjectPage(obj);
 		setTimeout(() => {
 			if (location?.state?.classToPage?.length > 0) {
@@ -157,15 +157,15 @@ function PageC() {
 	
 	const pageRef = useRef(null);
 	const location = useLocation();
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		onInit();
 	}, []);
 
 	const onInit = () => {
-        const obj = getObjectPageByPath(location.pathname);
-        dispatch(setCurrentPage(obj));
+		const obj = getObjectPageByPath(location.pathname);
+		dispatch(setCurrentPage(obj));
 		setObjectPage(obj);
 		setTimeout(() => {
 			if (location?.state?.classToPage?.length > 0) {
@@ -216,15 +216,15 @@ function PageD() {
 	
 	const pageRef = useRef(null);
 	const location = useLocation();
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		onInit();
 	}, []);
 
 	const onInit = () => {
-        const obj = getObjectPageByPath(location.pathname);
-        dispatch(setCurrentPage(obj));
+		const obj = getObjectPageByPath(location.pathname);
+		dispatch(setCurrentPage(obj));
 		setObjectPage(obj);
 		setTimeout(() => {
 			if (location?.state?.classToPage?.length > 0) {

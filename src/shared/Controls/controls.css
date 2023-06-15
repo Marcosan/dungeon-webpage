@@ -45,3 +45,8 @@
 	height: 40px;
 	color: white;
 }
+
+.deactivate {
+    background-color: #d2dbdb;
+    cursor: default;
+}

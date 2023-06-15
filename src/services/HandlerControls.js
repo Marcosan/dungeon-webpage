@@ -37,26 +37,3 @@ export function getObjectPageByPath(path) {
 			break;
 	}
 }
-
-export function getClassByDirection(type, direction) {
-	// switch (direction) {
-	// 	case 'up':
-	// 		animClass = 'anim-change-page-up';
-	// 		setToPage(getPageNameByKey(objectPage.up));
-	// 		break;
-	// 	case 'down':
-	// 		animClass = 'anim-change-page-up';
-	// 		setToPage(getPageNameByKey(objectPage.down));
-	// 		break;
-	// 	case 'left':
-	// 		animClass = 'anim-change-page-up';
-	// 		setToPage(getPageNameByKey(objectPage.left));
-	// 		break;
-	// 	case 'right':
-	// 		animClass = 'anim-change-page-up';
-	// 		setToPage(getPageNameByKey(objectPage.right));
-	// 		break;
-	// 	default:
-	// 		break;
-	// }
-}

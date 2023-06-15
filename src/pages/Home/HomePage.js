@@ -15,15 +15,15 @@ function Home(props) {
 	
 	const pageRef = useRef(null);
 	const location = useLocation();
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		onInit();
 	}, []);
 
 	const onInit = () => {
-        const obj = getObjectPageByPath(location.pathname);
-        dispatch(setCurrentPage(obj));
+		const obj = getObjectPageByPath(location.pathname);
+		dispatch(setCurrentPage(obj));
 		setObjectPage(obj);
 		setTimeout(() => {
 			if (location?.state?.classToPage?.length > 0) {
@@ -63,10 +63,33 @@ function Home(props) {
 				justifyContent: 'center',
 				color: '#fff',
 				fontSize: '50px',
-			}}>HOME</div>
+			}}>
+				<Counter {...props}/>
+			</div>
 		</div>
 	);
 }
 
-
+const Counter = (props) => {
+	const { value, onIncrement, onDecrement, onIncrementAsync } = props;
+	return (
+	<div>
+		<button onClick={onIncrementAsync}>
+		Sumar en 1 segundo
+		</button>
+		{' '}
+		<button onClick={onIncrement}>
+		Aumentar
+		</button>
+		{' '}
+		<button onClick={onDecrement}>
+		Restar
+		</button>
+		<hr />
+		<div>
+		Veces: {value}
+		</div>
+	</div>
+	);
+}
 export default Home;

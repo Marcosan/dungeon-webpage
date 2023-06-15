@@ -10,7 +10,7 @@ export default function MapDungeon(props) {
 			{
 				ALL_PAGES.map((iValue, i) => {
 					return iValue.map((jValue, j) => {
-						console.log(jValue);
+						// console.log(jValue);
 						if (!jValue) {
 							return null;
 						}

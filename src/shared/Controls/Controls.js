@@ -48,16 +48,16 @@ export default function Controls(props) {
 	
 	return (
 		<div className="wrapper">
-			<div className="up" onClick={() => onPressControl('up')}>
+			<div className={`up ${objectPage?.up != null ? '' : ' deactivate'}`} onClick={() => onPressControl('up')}>
 				<FontAwesomeIcon className="icon-dir" icon={faChevronUp}/>
 			</div>
-			<div className="down" onClick={() => onPressControl('down')}>
+			<div className={`down ${objectPage?.down != null ? '' : ' deactivate'}`} onClick={() => onPressControl('down')}>
 				<FontAwesomeIcon className="icon-dir" icon={faChevronDown}/>
 			</div>
-			<div className="left" onClick={() => onPressControl('left')}>
+			<div className={`left ${objectPage?.left != null ? '' : ' deactivate'}`} onClick={() => onPressControl('left')}>
 				<FontAwesomeIcon className="icon-dir" icon={faChevronLeft}/>
 			</div>
-			<div className="right" onClick={() => onPressControl('right')}>
+			<div className={`right ${objectPage?.right != null ? '' : ' deactivate'}`} onClick={() => onPressControl('right')}>
 				<FontAwesomeIcon className="icon-dir" icon={faChevronRight}/>
 			</div>
 		</div>
